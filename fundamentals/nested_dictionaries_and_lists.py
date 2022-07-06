@@ -48,10 +48,10 @@ iterateDictionary(students)
 #=========== 3 ===========
 
 def iterateDictionary2(key_name, some_list):
-    i=0
+#    i=0
     for x in some_list:
-        print(students[i][key_name])
-        i+=1
+        print(x[key_name]) # print([students[i]][key_name]) old - not great, its alot of extras along with the manually counting i variable.
+#        i+=1 #don't need i to manually count. x is already doing that in the loop
 
 iterateDictionary2("first_name", students)
 iterateDictionary2("last_name", students)
@@ -62,15 +62,13 @@ dojo = {
 "locations": ["San Jose", "Seattle", "Dallas", "Chicago", "Tulsa", "DC", "Burbank"],
 "instructors": ["Michael", "Amy", "Eduardo", "Josh", "Graham", "Patrick", "Minh", "Devon"]
 }
-print(dojo.keys())
+#print(dojo.keys())
 
 def printInfo(some_dict):
     for x in some_dict.keys():
         print(len(some_dict[x]), x)
-        i=0
         for y in range(0,len(some_dict[x])): 
-            print(some_dict[x][i])
-            i+=1
+            print(some_dict[x][y])
 
 printInfo(dojo)
 # output:
