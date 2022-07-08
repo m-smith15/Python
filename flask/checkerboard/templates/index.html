@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+    <style>
+        .box1{
+            background-color:{{color1}};
+        }
+        .box2{
+            background-color:{{color2}};
+        }
+    </style>
+    <title>Checkerboard</title>
+</head>
+<body>
+
+    <table>
+        {% for i in range(0,x) %}
+        {% if i % 2 == 0 %}
+        <tr>
+            {% for n in range(0,y) %}
+            {% if n % 2 == 0 %}
+            <td class="box1"></td>
+            {% else %}
+            <td class="box2"></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% else %}
+        <tr>
+            {% for n in range(0,y) %}
+            {% if n % 2 == 0 %}
+            <td class="box2"></td>
+            {% else %}
+            <td class="box1"></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</body>
+</html>
