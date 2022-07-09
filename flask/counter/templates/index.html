@@ -13,8 +13,11 @@
     <div>You have visited the page {{session["visits"]}} time(s)</div>
     <div class="container"><a class="btn btn-primary" href="/click" name="count_1">Click to increase your counter number</a></div>
     <div class="container"><a class="btn btn-primary" href="/click/2" name="count_2">Click to increase your counter number by 2!</a></div>
-    <form action="/destory_session" method="POST">
-        <div class="container"><a class="btn btn-primary" href="/destroy_session" type="submit">Reset Counter</a></div>
+    <form action="/click/form" method="POST">
+        <lable for="click_input">Click to increase your counter number by an input!</lable>
+        <input class="btn btn-primary" type="text" name="click_input">
+        <input type="submit">
     </form>
+    <div class="container"><a class="btn btn-primary" href="/destroy_session" type="submit">Reset Counter</a></div>
 </body>
 </html>
