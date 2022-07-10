@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <title>Dojo Survey!</title>
+</head>
+<body>
+    <h1 class="container"> Welcome to the Dojo Survey</h1>
+    <h3 class="container"> Please fill out the information below:</h3>
+    <form action='/results' method='post'>
+        <div class="container">
+
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" name="name" class="form-control">
+
+        <label for="location" class="form-label">Location:</label>
+        <select name="location" class="form-control">
+            <option value="EST">US - EST</option>
+            <option value="CST">US - CST</option>
+            <option value="MST">US - MST</option>
+            <option value="PST">US - PST</option>
+        </select>
+
+        <label for="language" class="form-label">Preferred Language?</label>
+        <select name="language" class="form-control">
+            <option value="Ocean">Shrimpspeak</option>
+            <option value="back_english">Hsilgne sdrawkcab</option>
+            <option value="HTML">HTML, since it is a programming language</option>
+            <option value="snail">Snail Mail</option>
+        </select>
+
+        <label for="comments" class="form-label">Comments?:</label>
+        <input name="comments" class="form-control" type="textarea" placeholder="lol they think we'll read this!"><br>
+
+        <div>Do you think we'll read your comments?</div>
+        <input type="radio" name="radio_button" value="No_doubt">
+        <label for="No_doubt">No doubt!</label><br>
+        <input type="radio" name="radio_button" value="No way">
+        <label for="No">This feels like I'm walking through spiderwebs!</label><br><br>
+
+        <div>Okay, sorry. We'll read your comments. Do you believe us now?</div>
+        <input type="checkbox" name="checkbox_yes" value="hecking yes">
+        <label for="checkbox_yes">Yeah I sure do</label><br>
+        <input type="checkbox" name="checkbox_no" value="hecking no">
+        <label for="checkbox_no">Hecking no I don't!</label><br>
+        <br>
+        <input type="submit" class="btn btn-primary">
+        </div>
+    </form>
+</body>
+</html>

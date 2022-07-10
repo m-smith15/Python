@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <title>Dojo Survey!</title>
+</head>
+<body>
+    <h1 class="container"> Goodbye from the Dojo Survey</h1>
+    <h3 class="container"> Please see the information you provided below:</h3>
+    <div class="container">
+        {% for item in session["form_results"] %}
+            <p>Your name is {{item["name"]}}</p>
+            <p>Your location is {{item["location"]}}</p>
+            <p>Your comments are - {{item["comments"]}}</p>
+            <p>Do you think we'll read those comments? {{item["radio_button"]}}</p>
+            <p>Did you trust our apology? {{item["checkbox_yes"]}}</p>
+            <p>or did you still not believe us? {{item["checkbox_no"]}}</p>
+        {% endfor %}
+        <div class="container"><a class="btn btn-danger" href="/destroy_session" type="submit">Think it'll be diffenent if you try again?</a></div>
+    </div>
+    
+</body>
+</html>
