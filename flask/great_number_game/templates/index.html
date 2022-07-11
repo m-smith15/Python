@@ -9,9 +9,10 @@
     <title>Great Number Game</title>
 </head>
 <body>
+{% if session["attempts"] < 6 %}
     <h1 class="container">YOU WANNA KNOW WHAT I KNOW?</h1>
     <h3 class="container">Guess a number between 1 and 100</h3>
-    <h4 class="container">You guessed {{session["guess"]}}</h4>
+    <h4 class="container">You guessed {{session["guess"]}} | {{session["attempts"]}} attempts so far</h4>
     <form class="container" action="/play_again" method="post">
         {% if session["guess"] > session["guess_number"] %}
             <div style="background-color:red">Too High!</div>
@@ -39,5 +40,11 @@
         <li> Test : {{item["guess"]}}</li>
         {% endfor %}
     </div>
+{% else %}
+    <form class="container" action="/play_again" method="post">
+        <div>The correct answer was {{session["guess_number"]}}. Would you like to try again?</div>
+        <div><input type="submit" class="btn btn-primary" value="Try again?"></div>
+    </form>
+{% endif %}
 </body>
 </html>

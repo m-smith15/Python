@@ -17,6 +17,8 @@ def landing_page():
     if "guess_hist" not in session:
         session["guess_hist"] = []
         print("guess history reset")
+    if "attempts" not in session:
+        session["attempts"] = 0
 
 
     return render_template("index.html")
@@ -35,6 +37,8 @@ def guess_sent():
     print(session["guess"])
     print(session["guess_number"])
 
+    session["attempts"] += 1
+    
     session.modified = True
     
     return redirect("/")
@@ -43,6 +47,8 @@ def guess_sent():
 def retry_game():
     session["guess"] = 0
     session["guess_hist"] = []
+    session["attempts"] = 0
+    session["guess_number"] = random.randint(1,100)
 
     return redirect("/")
 
