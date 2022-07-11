@@ -1,0 +1,19 @@
+*{
+    margin:0;
+    padding:0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    background-color:steelblue;
+}
+h3{
+    vertical-align: middle;
+}
+.guess_form{
+    background-color:slateblue;
+    position:relative;
+    height:100px;
+}
+label{
+    top: 10%;
+}

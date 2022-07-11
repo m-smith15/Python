@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <title>Great Number Game</title>
+</head>
+<body>
+    <h1 class="container">YOU WANNA KNOW WHAT I KNOW?</h1>
+    <h3 class="container">Guess a number between 1 and 100</h3>
+    <h4 class="container">You guessed {{session["guess"]}}</h4>
+    <form class="container" action="/play_again" method="post">
+        {% if session["guess"] > session["guess_number"] %}
+            <div style="background-color:red">Too High!</div>
+        {% elif session["guess"] == 0 %}
+        {% elif session["guess"] < session["guess_number"] %}
+            <div style="background-color:yellow">Too Low!</div>
+        {% else %}
+            <div style="background-color:green">You got it!</div>
+            <div><input type="submit" class="btn btn-primary" value="Try again?"></div>
+            {% endif %}
+    </form>
+
+    <form class="guess_form container" action="/guess" method="post">
+        <div>
+        <label class="form-label position-absolute top-5 start-50 translate-middle" for="guess">Go ahead, try - </label>
+        <input class="position-absolute top-50 start-50 translate-middle" type="text" name="guess"><br>
+    
+        <input type="submit" class="btn btn-primary position-absolute top-100 start-50 translate-middle">
+    </div>
+    </form>
+
+    <div class="container">
+        <p>so far you've guessed: </p>
+        {% for item in session["guess_hist"] %}
+        <li> Test : {{item["guess"]}}</li>
+        {% endfor %}
+    </div>
+</body>
+</html>
